@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import TodoList from './components/TodoList';
+import TaskList from './components/TaskList';
 
 const data = [
   { id: 1, task: 'this is task 1', complate: true },
@@ -9,20 +9,25 @@ const data = [
   { id: 5, task: 'this is task 5', complate: true },
 ];
 
-export interface Todo {
+export interface Task {
   id: number;
   task: string;
   complate: boolean;
 }
 
 const App = () => {
-  const [todoList, setTodoList] = useState<Todo[]>(data);
+  const [taskList, setTaskList] = useState<Task[]>(data);
   return (
     <div className="bg-slate-200 max-w-3xl w-11/12 mt-8 mx-auto">
       <h1 className="text-center font-bold text-xl">
         Personal Todo Application
       </h1>
-      <TodoList todoList={todoList} />
+      <TaskList
+        taskList={taskList}
+        onDeleteTask={(taskId) =>
+          setTaskList(taskList.filter((task) => task.id !== taskId))
+        }
+      />
     </div>
   );
 };
