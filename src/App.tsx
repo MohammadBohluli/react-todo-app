@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import TaskList from './components/TaskList';
+import InputTask from './components/InputTask';
 
 const data = [
   { id: 1, task: 'this is task 1', complate: true },
@@ -22,6 +23,9 @@ const App = () => {
       <h1 className="text-center font-bold text-xl">
         Personal Todo Application
       </h1>
+
+      <InputTask onAddTask={(task) => setTaskList([...taskList, ...task])} />
+
       <TaskList
         taskList={taskList}
         onDeleteTask={(taskId) =>

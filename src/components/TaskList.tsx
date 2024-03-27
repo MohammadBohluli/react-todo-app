@@ -9,12 +9,12 @@ const TaskList = ({ taskList, onDeleteTask }: Props) => {
   return (
     <div>
       <ul>
-        {taskList.map((task, index) => (
-          <li key={task.id}>
+        {taskList.map(({ id, task }, index) => (
+          <li key={id}>
             <div>
               <span>{index + 1}. </span>
-              {task.task}
-              <button onClick={() => onDeleteTask(task.id)}>Delete</button>
+              {task}
+              <button onClick={() => onDeleteTask(id)}>Delete</button>
             </div>
           </li>
         ))}
