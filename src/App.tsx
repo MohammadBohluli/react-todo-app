@@ -1,5 +1,30 @@
+import { useState } from 'react';
+import TodoList from './components/TodoList';
+
+const data = [
+  { id: 1, task: 'this is task 1', complate: true },
+  { id: 2, task: 'this is task 2', complate: false },
+  { id: 3, task: 'this is task 3', complate: true },
+  { id: 4, task: 'this is task 4', complate: false },
+  { id: 5, task: 'this is task 5', complate: true },
+];
+
+export interface Todo {
+  id: number;
+  task: string;
+  complate: boolean;
+}
+
 const App = () => {
-  return <div></div>;
+  const [todoList, setTodoList] = useState<Todo[]>(data);
+  return (
+    <div className="bg-slate-200 max-w-3xl w-11/12 mt-8 mx-auto">
+      <h1 className="text-center font-bold text-xl">
+        Personal Todo Application
+      </h1>
+      <TodoList todoList={todoList} />
+    </div>
+  );
 };
 
 export default App;
