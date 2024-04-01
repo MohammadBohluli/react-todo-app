@@ -1,33 +1,18 @@
-import { FormEvent, useState } from 'react';
-import { Task } from '../App';
+import { FormEvent } from "react";
 
 interface Props {
-  onAddTask: (task: Task[]) => void;
+  value: string;
+  onSubmit: (e: FormEvent<HTMLFormElement>) => void;
+  onChange: (input: string) => void;
 }
 
-const InputTask = ({ onAddTask }: Props) => {
-  const [taskInput, setTaskInput] = useState('');
-
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-
-    if (!taskInput) return;
-
-    const newTask: Task = {
-      id: Math.floor(Math.random() * 10000),
-      task: taskInput,
-      complate: false,
-    };
-
-    onAddTask([newTask]);
-    setTaskInput('');
-  };
+const InputTask = ({ value, onSubmit, onChange }: Props) => {
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={(e) => onSubmit(e)}>
       <input
-        value={taskInput}
+        value={value}
         type="text"
-        onChange={(e) => setTaskInput(e.target.value)}
+        onChange={(e) => onChange(e.target.value)}
       />
       <button type="submit">Submit</button>
     </form>
