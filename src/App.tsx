@@ -24,6 +24,16 @@ const App = () => {
   const [filterSearchList, setFilterSearchList] = useState<Task[] | null>(null);
   const [value, setValue] = useState<string>("");
 
+  const onToggleComplete = (id: number) => {
+    setTaskList(
+      taskList.map((taskItem) =>
+        taskItem.id === id
+          ? { ...taskItem, complate: !taskItem.complate }
+          : taskItem
+      )
+    );
+  };
+
   const handleSelectedTask = (taskItem: Task) => {
     setSelectedTask(taskItem);
     setValue(taskItem.task);
@@ -92,6 +102,7 @@ const App = () => {
           setTaskList(taskList.filter((task) => task.id !== taskId))
         }
         onSelectedTask={handleSelectedTask}
+        onToggleComplete={onToggleComplete}
       />
     </div>
   );
