@@ -1,6 +1,7 @@
 import { FormEvent, useState } from "react";
 import TaskList from "./components/TaskList";
 import InputTask from "./components/InputTask";
+import SearchInput from "./components/SearchInput";
 
 const data = [
   { id: 1, task: "this is task 1", complate: true },
@@ -19,6 +20,7 @@ export interface Task {
 const App = () => {
   const [taskList, setTaskList] = useState<Task[]>(data);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
+  const [filterSearchList, setFilterSearchList] = useState<Task[] | null>(null);
   const [value, setValue] = useState<string>("");
 
   const handleSelectedTask = (taskItem: Task) => {
@@ -63,6 +65,7 @@ const App = () => {
     }
 
     setValue("");
+    setFilterSearchList(null);
   };
 
   return (
@@ -76,9 +79,12 @@ const App = () => {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-
-      <TaskList
+      <SearchInput
         taskList={taskList}
+        onSearchList={(searchList) => setFilterSearchList(searchList)}
+      />
+      <TaskList
+        taskList={filterSearchList ?? taskList}
         onDeleteTask={(taskId) =>
           setTaskList(taskList.filter((task) => task.id !== taskId))
         }
