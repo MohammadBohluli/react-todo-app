@@ -1,7 +1,8 @@
 import { FormEvent, useState } from "react";
 import TaskList from "./components/TaskList";
 import InputTask from "./components/InputTask";
-import SearchInput from "./components/SearchInput";
+
+import InputGroups from "./components/InputGroups";
 
 const data = [
   { id: 1, task: "make a cup of coffee or tea", complate: true },
@@ -79,10 +80,12 @@ const App = () => {
         onChange={handleChange}
         onSubmit={handleSubmit}
       />
-      <SearchInput
+
+      <InputGroups
         taskList={taskList}
         onSearchList={(searchList) => setFilterSearchList(searchList)}
       />
+
       <TaskList
         taskList={filterSearchList ?? taskList}
         onDeleteTask={(taskId) =>

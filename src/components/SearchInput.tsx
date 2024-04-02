@@ -4,6 +4,7 @@ interface Props {
   taskList: Task[];
   onSearchList: (taskList: Task[]) => void;
 }
+
 const SearchInput = ({ taskList, onSearchList }: Props) => {
   const [searchQuery, setSearchQuery] = useState<string>("");
 
