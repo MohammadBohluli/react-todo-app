@@ -4,10 +4,10 @@ import InputTask from "./components/InputTask";
 import SearchInput from "./components/SearchInput";
 
 const data = [
-  { id: 1, task: "this is task 1", complate: true },
-  { id: 2, task: "this is task 2", complate: false },
-  { id: 3, task: "this is task 3", complate: true },
-  { id: 4, task: "this is task 4", complate: false },
+  { id: 1, task: "make a cup of coffee or tea", complate: true },
+  { id: 2, task: "check calender today", complate: false },
+  { id: 3, task: "respond to important email", complate: true },
+  { id: 4, task: "start with the most important task first", complate: false },
   { id: 5, task: "this is task 5", complate: true },
 ];
 
