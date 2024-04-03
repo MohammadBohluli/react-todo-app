@@ -23,6 +23,7 @@ const App = () => {
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [filterSearchList, setFilterSearchList] = useState<Task[] | null>(null);
   const [value, setValue] = useState<string>("");
+  const [selectedStatus, setSelectedStatus] = useState<string>("");
 
   const onToggleComplete = (id: number) => {
     setTaskList(
@@ -79,6 +80,10 @@ const App = () => {
     setFilterSearchList(null);
   };
 
+  const handleSelectStatus = (status: string) => {
+    setSelectedStatus(status);
+  };
+
   return (
     <div className="bg-slate-200 max-w-3xl w-11/12 mt-8 mx-auto">
       <h1 className="text-center font-bold text-xl">
@@ -94,6 +99,8 @@ const App = () => {
       <InputGroups
         taskList={taskList}
         onSearchList={(searchList) => setFilterSearchList(searchList)}
+        selectedStatus={selectedStatus}
+        onSelectStatus={handleSelectStatus}
       />
 
       <TaskList
@@ -103,6 +110,7 @@ const App = () => {
         }
         onSelectedTask={handleSelectedTask}
         onToggleComplete={onToggleComplete}
+        selectedStatus={selectedStatus}
       />
     </div>
   );

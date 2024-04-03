@@ -5,6 +5,7 @@ interface Props {
   onDeleteTask: (id: number) => void;
   onSelectedTask: (task: Task) => void;
   onToggleComplete: (taskId: number) => void;
+  selectedStatus: string;
 }
 
 const TaskList = ({
@@ -12,11 +13,22 @@ const TaskList = ({
   onDeleteTask,
   onSelectedTask,
   onToggleComplete,
+  selectedStatus,
 }: Props) => {
+  let taskListStatus = taskList;
+
+  if (selectedStatus === "true") {
+    taskListStatus = taskList.filter((taskItem) => taskItem.complate === true);
+  }
+
+  if (selectedStatus === "false") {
+    taskListStatus = taskList.filter((taskItem) => taskItem.complate === false);
+  }
+
   return (
     <div>
       <ul>
-        {taskList.map((taskItem, index) => (
+        {taskListStatus.map((taskItem, index) => (
           <li key={taskItem.id}>
             <div>
               <span>{index + 1}. </span>
