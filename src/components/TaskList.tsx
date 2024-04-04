@@ -1,3 +1,4 @@
+import { VscEdit, VscChromeClose } from "react-icons/vsc";
 import { Task } from "../App";
 
 interface Props {
@@ -27,19 +28,40 @@ const TaskList = ({
 
   return (
     <div>
-      <ul>
-        {taskListStatus.map((taskItem, index) => (
+      <ul className="">
+        {taskListStatus.map((taskItem) => (
           <li key={taskItem.id}>
-            <div>
-              <span>{index + 1}. </span>
-              {taskItem.task}
-              <input
-                type="checkbox"
-                checked={taskItem.complate}
-                onChange={() => onToggleComplete(taskItem.id)}
-              />
-              <button onClick={() => onDeleteTask(taskItem.id)}>Delete</button>
-              <button onClick={() => onSelectedTask(taskItem)}>Edit</button>
+            <div
+              className="bg-gray-700 text-gray-100 m-1 bg-opacity-[0.33] rounded-xl 
+              shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-3xl border-white/[0.3]
+              border-[1px] py-2 px-3 hover:opacity-90"
+            >
+              <div className="flex gap-2 items-center">
+                <input
+                  type="checkbox"
+                  checked={taskItem.complate}
+                  onChange={() => onToggleComplete(taskItem.id)}
+                  className="accent-green-600 w-4 h-4"
+                />
+                <span className={`${taskItem.complate ? "line-through" : ""}`}>
+                  {taskItem.task}
+                </span>
+              </div>
+
+              <div className="flex justify-end gap-2">
+                <button
+                  onClick={() => onDeleteTask(taskItem.id)}
+                  className="bg-red-500 p-[2px] rounded hover:bg-red-600"
+                >
+                  <VscChromeClose size={18} />
+                </button>
+                <button
+                  onClick={() => onSelectedTask(taskItem)}
+                  className="bg-yellow-400 p-[2px] rounded hover:bg-yellow-500"
+                >
+                  <VscEdit size={18} />
+                </button>
+              </div>
             </div>
           </li>
         ))}
