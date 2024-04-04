@@ -85,10 +85,12 @@ const App = () => {
   };
 
   return (
-    <div className="bg-slate-200 max-w-3xl w-11/12 mt-8 mx-auto">
-      <h1 className="text-center font-bold text-xl">
-        Personal Todo Application
-      </h1>
+    <div
+      className="bg-white max-w-3xl w-11/12 mt-8 mx-auto p-3
+                  bg-opacity-[0.33] rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] 
+                  backdrop-blur-3xl border-white/[0.2] border-[1px]"
+    >
+      <h1 className="text-center text-2xl">مدیریت کارها</h1>
 
       <InputTask
         value={value}
