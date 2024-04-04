@@ -5,11 +5,11 @@ import InputTask from "./components/InputTask";
 import InputGroups from "./components/InputGroups";
 
 const data = [
-  { id: 1, task: "make a cup of coffee or tea", complate: true },
-  { id: 2, task: "check calender today", complate: false },
-  { id: 3, task: "respond to important email", complate: true },
-  { id: 4, task: "start with the most important task first", complate: false },
-  { id: 5, task: "this is task 5", complate: true },
+  { id: 1, task: "درست کردن قهوه", complate: true },
+  { id: 2, task: "انجام تکالیف", complate: false },
+  { id: 3, task: "ارسال ایمیل به دوستم", complate: true },
+  { id: 4, task: "انجام تسک های شرکت", complate: false },
+  { id: 5, task: "رفتن به پارک", complate: true },
 ];
 
 export interface Task {
