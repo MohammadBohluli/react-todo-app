@@ -21,7 +21,10 @@ const SearchInput = ({ taskList, onSearchList }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="flex justify-between gap-4 w-full">
+    <form
+      onSubmit={handleSubmit}
+      className="flex justify-between gap-4 sm:gap-1 w-full sm:w-auto"
+    >
       <input
         type="search"
         value={searchQuery}
