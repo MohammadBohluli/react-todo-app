@@ -1,4 +1,5 @@
 import { FormEvent, useState } from "react";
+import { VscSearch } from "react-icons/vsc";
 import { Task } from "../App";
 interface Props {
   taskList: Task[];
@@ -20,13 +21,16 @@ const SearchInput = ({ taskList, onSearchList }: Props) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="flex justify-between gap-4 w-full">
       <input
         type="search"
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        className="input"
       />
-      <button>search</button>
+      <button className="bg-sky-400 py-1 px-2 rounded hover:bg-sky-500">
+        <VscSearch color="white" size={25} />
+      </button>
     </form>
   );
 };

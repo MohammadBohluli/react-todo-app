@@ -13,9 +13,12 @@ const InputTask = ({ value, onSubmit, onChange }: Props) => {
         value={value}
         type="text"
         onChange={(e) => onChange(e.target.value)}
-        className="grow rounded pr-2 py-1 outline-none border-b-4 border-white focus:border-b-sky-400"
+        className="input"
       />
-      <button type="submit" className="bg-sky-400 p-1 rounded hover:bg-sky-500">
+      <button
+        type="submit"
+        className="bg-sky-400 py-1 px-2 rounded hover:bg-sky-500"
+      >
         <VscAdd color="white" size={25} />
       </button>
     </form>

@@ -16,7 +16,7 @@ const InputGroups = ({
   onSelectStatus,
 }: Props) => {
   return (
-    <div>
+    <div className="flex justify-between flex-wrap grow gap-3">
       <SearchInput taskList={taskList} onSearchList={onSearchList} />
       <StatusSelection
         selectedStatus={selectedStatus}
