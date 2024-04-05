@@ -86,6 +86,13 @@ const App = () => {
     setSelectedStatus(status);
   };
 
+  const handleDeleteTask = (taskId: number) => {
+    const deleteConfirm = confirm("آیا از حذف مطمعن هستید ؟");
+    deleteConfirm
+      ? setTaskList(taskList.filter((taskItem) => taskItem.id !== taskId))
+      : null;
+  };
+
   return (
     <div
       className="bg-white max-w-3xl w-11/12 mt-8 mx-auto p-3
@@ -111,9 +118,7 @@ const App = () => {
 
           <TaskList
             taskList={filterSearchList ?? taskList}
-            onDeleteTask={(taskId) =>
-              setTaskList(taskList.filter((task) => task.id !== taskId))
-            }
+            onDeleteTask={handleDeleteTask}
             onSelectedTask={handleSelectedTask}
             onToggleComplete={onToggleComplete}
             selectedStatus={selectedStatus}
