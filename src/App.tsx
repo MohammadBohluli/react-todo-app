@@ -3,6 +3,7 @@ import TaskList from "./components/TaskList";
 import InputTask from "./components/InputTask";
 
 import InputGroups from "./components/InputGroups";
+import TaskStats from "./components/TaskStats";
 
 const data = [
   { id: 1, task: "درست کردن قهوه", complate: true },
@@ -118,6 +119,8 @@ const App = () => {
             selectedStatus={selectedStatus}
             searchQuery={searchQuery}
           />
+
+          <TaskStats taskList={taskList} />
         </div>
       ) : null}
     </div>
