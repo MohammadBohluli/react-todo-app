@@ -1,8 +1,10 @@
+import { Task } from "../App";
 import AllCompleteButton from "./AllCompleteButton";
 import SearchInput from "./SearchInput";
 import StatusSelection from "./StatusSelection";
 
 interface Props {
+  onAllCompleteTask: () => void;
   searchQuery: string;
   onSearchQuery: (searchParam: string) => void;
   selectedStatus: string;
@@ -10,6 +12,7 @@ interface Props {
 }
 
 const InputGroups = ({
+  onAllCompleteTask,
   searchQuery,
   onSearchQuery,
   selectedStatus,
@@ -23,7 +26,7 @@ const InputGroups = ({
           selectedStatus={selectedStatus}
           onSelectStatus={onSelectStatus}
         />
-        <AllCompleteButton />
+        <AllCompleteButton onAllComplateTask={onAllCompleteTask} />
       </div>
     </div>
   );

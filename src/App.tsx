@@ -93,9 +93,17 @@ const App = () => {
       : null;
   };
 
+  const handleAllCompleteTask = () => {
+    setTaskList(
+      taskList.map((taskItem) =>
+        !taskItem.complate ? { ...taskItem, complate: true } : taskItem
+      )
+    );
+  };
+
   return (
     <div
-      className="bg-white max-w-3xl w-11/12 mt-8 mx-auto p-3
+      className="bg-white max-w-3xl w-11/12 my-8 mx-auto p-3
                   bg-opacity-[0.33] rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] 
                   backdrop-blur-3xl border-white/[0.2] border-[1px]"
     >
@@ -110,6 +118,7 @@ const App = () => {
       {taskList.length !== 0 ? (
         <div>
           <InputGroups
+            onAllCompleteTask={handleAllCompleteTask}
             searchQuery={searchQuery}
             onSearchQuery={(searchParam) => setSearchQuery(searchParam)}
             selectedStatus={selectedStatus}
