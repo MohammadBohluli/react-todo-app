@@ -1,40 +1,16 @@
-import { FormEvent, useState } from "react";
-import { VscSearch } from "react-icons/vsc";
-import { Task } from "../App";
 interface Props {
-  taskList: Task[];
-  onSearchList: (taskList: Task[]) => void;
+  searchQuery: string;
+  onSearchQuery: (searchParam: string) => void;
 }
 
-const SearchInput = ({ taskList, onSearchList }: Props) => {
-  const [searchQuery, setSearchQuery] = useState<string>("");
-
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    if (!searchQuery) onSearchList(taskList);
-
-    const filterList = taskList.filter((taskItem) =>
-      taskItem.task.toLowerCase().includes(searchQuery.toLowerCase())
-    );
-
-    onSearchList(filterList);
-  };
-
+const SearchInput = ({ searchQuery, onSearchQuery }: Props) => {
   return (
-    <form
-      onSubmit={handleSubmit}
-      className="flex justify-between gap-4 sm:gap-1 w-full sm:w-auto"
-    >
-      <input
-        type="search"
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        className="input"
-      />
-      <button className="bg-sky-400 py-1 px-2 rounded hover:bg-sky-500">
-        <VscSearch color="white" size={25} />
-      </button>
-    </form>
+    <input
+      type="search"
+      value={searchQuery}
+      onChange={(e) => onSearchQuery(e.target.value)}
+      className="input"
+    />
   );
 };
 

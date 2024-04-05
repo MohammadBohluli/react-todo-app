@@ -24,6 +24,7 @@ const App = () => {
   const [filterSearchList, setFilterSearchList] = useState<Task[] | null>(null);
   const [value, setValue] = useState<string>("");
   const [selectedStatus, setSelectedStatus] = useState<string>("");
+  const [searchQuery, setSearchQuery] = useState<string>("");
 
   const onToggleComplete = (id: number) => {
     setTaskList(
@@ -99,8 +100,8 @@ const App = () => {
       />
 
       <InputGroups
-        taskList={taskList}
-        onSearchList={(searchList) => setFilterSearchList(searchList)}
+        searchQuery={searchQuery}
+        onSearchQuery={(searchParam) => setSearchQuery(searchParam)}
         selectedStatus={selectedStatus}
         onSelectStatus={handleSelectStatus}
       />
@@ -113,6 +114,7 @@ const App = () => {
         onSelectedTask={handleSelectedTask}
         onToggleComplete={onToggleComplete}
         selectedStatus={selectedStatus}
+        searchQuery={searchQuery}
       />
     </div>
   );
