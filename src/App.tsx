@@ -99,23 +99,27 @@ const App = () => {
         onSubmit={handleSubmit}
       />
 
-      <InputGroups
-        searchQuery={searchQuery}
-        onSearchQuery={(searchParam) => setSearchQuery(searchParam)}
-        selectedStatus={selectedStatus}
-        onSelectStatus={handleSelectStatus}
-      />
+      {taskList.length !== 0 ? (
+        <div>
+          <InputGroups
+            searchQuery={searchQuery}
+            onSearchQuery={(searchParam) => setSearchQuery(searchParam)}
+            selectedStatus={selectedStatus}
+            onSelectStatus={handleSelectStatus}
+          />
 
-      <TaskList
-        taskList={filterSearchList ?? taskList}
-        onDeleteTask={(taskId) =>
-          setTaskList(taskList.filter((task) => task.id !== taskId))
-        }
-        onSelectedTask={handleSelectedTask}
-        onToggleComplete={onToggleComplete}
-        selectedStatus={selectedStatus}
-        searchQuery={searchQuery}
-      />
+          <TaskList
+            taskList={filterSearchList ?? taskList}
+            onDeleteTask={(taskId) =>
+              setTaskList(taskList.filter((task) => task.id !== taskId))
+            }
+            onSelectedTask={handleSelectedTask}
+            onToggleComplete={onToggleComplete}
+            selectedStatus={selectedStatus}
+            searchQuery={searchQuery}
+          />
+        </div>
+      ) : null}
     </div>
   );
 };
