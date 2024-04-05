@@ -49,11 +49,13 @@ const TaskList = ({
                     onChange={() => onToggleComplete(taskItem.id)}
                     className="accent-green-600 w-4 h-4"
                   />
-                  <span
-                    className={`${taskItem.complate ? "line-through" : ""}`}
+                  <p
+                    className={`${
+                      taskItem.complate ? "line-through" : ""
+                    } break-all`}
                   >
                     {taskItem.task}
-                  </span>
+                  </p>
                 </div>
 
                 <div className="flex justify-end gap-2">

@@ -8,9 +8,9 @@ import TaskStats from "./components/TaskStats";
 const data = [
   { id: 1, task: "درست کردن قهوه", complate: true },
   { id: 2, task: "انجام تکالیف", complate: false },
-  { id: 3, task: "ارسال ایمیل به دوستم", complate: true },
+  { id: 3, task: "ارسال ایمیل", complate: true },
   { id: 4, task: "انجام تسک های شرکت", complate: false },
-  { id: 5, task: "رفتن به پارک", complate: true },
+  { id: 5, task: "خرید وسایل مورد نیاز", complate: true },
 ];
 
 export interface Task {
