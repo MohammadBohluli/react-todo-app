@@ -6,7 +6,7 @@ interface Props {
 
 const SearchInput = ({ searchQuery, onSearchQuery }: Props) => {
   return (
-    <div className="flex justify-center items-center relative">
+    <div className="flex justify-center items-center w-full relative">
       <span className="bg-white absolute right-0 text-gray-400">
         <CiSearch size={30} />
       </span>

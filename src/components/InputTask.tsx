@@ -1,5 +1,6 @@
-import { FormEvent } from "react";
-import { VscAdd } from "react-icons/vsc";
+import { FormEvent } from 'react';
+import { VscAdd } from 'react-icons/vsc';
+
 interface Props {
   value: string;
   onSubmit: (e: FormEvent<HTMLFormElement>) => void;
@@ -14,6 +15,7 @@ const InputTask = ({ value, onSubmit, onChange }: Props) => {
         type="text"
         onChange={(e) => onChange(e.target.value)}
         className="input"
+        placeholder="کارتو وارد کن"
       />
       <button
         type="submit"
