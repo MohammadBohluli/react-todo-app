@@ -22,7 +22,6 @@ export interface Task {
 const App = () => {
   const [taskList, setTaskList] = useState<Task[]>(data);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
-  const [filterSearchList, setFilterSearchList] = useState<Task[] | null>(null);
   const [value, setValue] = useState<string>('');
   const [selectedStatus, setSelectedStatus] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
@@ -79,7 +78,6 @@ const App = () => {
     }
 
     setValue('');
-    setFilterSearchList(null);
   };
 
   const handleSelectStatus = (status: string) => {
@@ -122,7 +120,7 @@ const App = () => {
           />
 
           <TaskList
-            taskList={filterSearchList ?? taskList}
+            taskList={taskList}
             onDeleteTask={handleDeleteTask}
             onSelectedTask={handleSelectedTask}
             onToggleComplete={onToggleComplete}
