@@ -1,30 +1,44 @@
-# React + TypeScript + Vite
+<h1 align="center" id="title">Todo React Application 📃</h1>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+❗Screenshot and project link, end of this README file
 
-Currently, two official plugins are available:
+## 👨‍💻online project link
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+🔗 [Link](https://65d12cf90e2459e65f04e0d7--doctor-care-mbh.netlify.app/)
 
-## Expanding the ESLint configuration
+<h2>💻 Built with</h2>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Technologies and Library used in the project:
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- Typescript
+- Vite
+- Tailwind CSS
+- React-icons
+- Completely responsive
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+<h2>🛠️ run project locally and development mode</h2>
+<p>☝️ first of all</p>
+
+```
+git clone https://github.com/MohammadBohluli/react-todo-app
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+<p>👉 and </p>
+
+```
+cd react-todo-app
+```
+
+<p>👆 then </p>
+
+```
+npm install
+npm run dev
+```
+
+<p>✅Done</p>
+
+<h2> 🎨Design </h2>
+
+![photo_2024-02-18_00-53-34](https://github.com/MohammadBohluli/doctors-care/assets/84536105/eff12e5a-6707-41cf-bbda-91e318e3353a)
