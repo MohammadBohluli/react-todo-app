@@ -1,4 +1,4 @@
-<h1 align="center" id="title">Todo React Application 📃</h1>
+<h1 align="center" id="title">Persian Todo React Application 📃</h1>
 
 ❗Screenshot and project link, end of this README file
 
@@ -41,4 +41,5 @@ npm run dev
 
 <h2> 🎨Design </h2>
 
-![photo_2024-02-18_00-53-34](https://github.com/MohammadBohluli/doctors-care/assets/84536105/eff12e5a-6707-41cf-bbda-91e318e3353a)
+
+![Design](https://github.com/MohammadBohluli/react-todo-app/assets/84536105/8131c31a-37a2-4eed-8227-9407fe20ee4d)
