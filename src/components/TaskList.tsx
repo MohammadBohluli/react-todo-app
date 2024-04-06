@@ -40,9 +40,8 @@ const TaskList = ({
           .map((taskItem) => (
             <li key={taskItem.id}>
               <div
-                className="bg-gray-700 text-gray-100 m-1 bg-opacity-[0.33] rounded-xl 
-              shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-3xl border-white/[0.3]
-              border-[1px] py-2 px-3 hover:opacity-90"
+                className="glass-morphism bg-gray-900 text-gray-100 m-1 
+                           bg-opacity-[0.33] py-2 px-3 hover:opacity-80"
               >
                 <div className="flex gap-2 items-center">
                   <input

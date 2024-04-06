@@ -1,7 +1,7 @@
-import { FaTasks } from "react-icons/fa";
-import { IoMdDoneAll } from "react-icons/io";
-import { GrInProgress } from "react-icons/gr";
-import { Task } from "../App";
+import { FaTasks } from 'react-icons/fa';
+import { IoMdDoneAll } from 'react-icons/io';
+import { GrInProgress } from 'react-icons/gr';
+import { Task } from '../App';
 
 interface Props {
   taskList: Task[];
@@ -17,8 +17,7 @@ const TaskStats = ({ taskList }: Props) => {
 
   return (
     <div
-      className="bg-purple-900 text-gray-100 m-1 bg-opacity-[0.33] rounded-xl 
-                 shadow-[0_4px_30px_rgba(0,0,0,0.1)] backdrop-blur-3xl border-purple-900/[0.3]
+      className="glass-morphism bg-purple-900 text-gray-100 m-1 bg-opacity-[0.33]
                  flex justify-around p-1 mt-10 w-2/4 mx-auto"
     >
       <div className="flex justify-center items-center gap-1">

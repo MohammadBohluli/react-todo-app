@@ -1,16 +1,16 @@
-import { FormEvent, useState } from "react";
-import TaskList from "./components/TaskList";
-import InputTask from "./components/InputTask";
+import { FormEvent, useState } from 'react';
+import TaskList from './components/TaskList';
+import InputTask from './components/InputTask';
 
-import InputGroups from "./components/InputGroups";
-import TaskStats from "./components/TaskStats";
+import InputGroups from './components/InputGroups';
+import TaskStats from './components/TaskStats';
 
 const data = [
-  { id: 1, task: "درست کردن قهوه", complate: true },
-  { id: 2, task: "انجام تکالیف", complate: false },
-  { id: 3, task: "ارسال ایمیل", complate: true },
-  { id: 4, task: "انجام تسک های شرکت", complate: false },
-  { id: 5, task: "خرید وسایل مورد نیاز", complate: true },
+  { id: 1, task: 'درست کردن قهوه', complate: true },
+  { id: 2, task: 'انجام تکالیف', complate: false },
+  { id: 3, task: 'ارسال ایمیل', complate: true },
+  { id: 4, task: 'انجام تسک های شرکت', complate: false },
+  { id: 5, task: 'خرید وسایل مورد نیاز', complate: true },
 ];
 
 export interface Task {
@@ -23,9 +23,9 @@ const App = () => {
   const [taskList, setTaskList] = useState<Task[]>(data);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [filterSearchList, setFilterSearchList] = useState<Task[] | null>(null);
-  const [value, setValue] = useState<string>("");
-  const [selectedStatus, setSelectedStatus] = useState<string>("");
-  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [value, setValue] = useState<string>('');
+  const [selectedStatus, setSelectedStatus] = useState<string>('');
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const onToggleComplete = (id: number) => {
     setTaskList(
@@ -50,7 +50,7 @@ const App = () => {
     };
 
     setTaskList([...taskList, newTask]);
-    setValue("");
+    setValue('');
   };
 
   const updateTask = (selectedTask: Task) => {
@@ -59,7 +59,7 @@ const App = () => {
         task.id === selectedTask.id ? { ...task, task: value } : task
       )
     );
-    setValue("");
+    setValue('');
     setSelectedTask(null);
   };
 
@@ -78,7 +78,7 @@ const App = () => {
       addTask();
     }
 
-    setValue("");
+    setValue('');
     setFilterSearchList(null);
   };
 
@@ -87,7 +87,7 @@ const App = () => {
   };
 
   const handleDeleteTask = (taskId: number) => {
-    const deleteConfirm = confirm("آیا از حذف مطمعن هستید ؟");
+    const deleteConfirm = confirm('آیا از حذف مطمعن هستید ؟');
     deleteConfirm
       ? setTaskList(taskList.filter((taskItem) => taskItem.id !== taskId))
       : null;
@@ -102,11 +102,7 @@ const App = () => {
   };
 
   return (
-    <div
-      className="bg-white max-w-3xl w-11/12 my-8 mx-auto p-3
-                  bg-opacity-[0.33] rounded-xl shadow-[0_4px_30px_rgba(0,0,0,0.1)] 
-                  backdrop-blur-3xl border-white/[0.2] border-[1px]"
-    >
+    <div className="glass-morphism max-w-3xl w-11/12 my-8 mx-auto p-3 bg-opacity-20">
       <h1 className="text-center text-2xl">مدیریت کارها</h1>
 
       <InputTask
