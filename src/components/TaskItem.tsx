@@ -40,13 +40,13 @@ const TaskItem = ({
               <span>
                 <CiCalendarDate size={16} />
               </span>
-              <span>{new Date().toLocaleDateString('fa-IR')}</span>
+              <span>{taskItem.date}</span>
             </div>
             <div className="flex justify-center items-center gap-1">
               <span>
                 <IoMdTime size={16} />
               </span>
-              <span>{new Date().toLocaleTimeString('fa-IR')}</span>
+              <span>{taskItem.time}</span>
             </div>
           </div>
           <div className="flex gap-2">

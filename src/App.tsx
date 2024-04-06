@@ -1,22 +1,16 @@
 import { FormEvent, useState } from 'react';
 import TaskList from './components/TaskList';
 import TaskInput from './components/TaskInput';
-
 import GroupsInput from './components/GroupsInput';
 import TaskStats from './components/TaskStats';
-
-const data = [
-  { id: 1, task: 'درست کردن قهوه', complate: true },
-  { id: 2, task: 'انجام تکالیف', complate: false },
-  { id: 3, task: 'ارسال ایمیل', complate: true },
-  { id: 4, task: 'انجام تسک های شرکت', complate: false },
-  { id: 5, task: 'خرید وسایل مورد نیاز', complate: true },
-];
+import data from './data';
 
 export interface Task {
   id: number;
   task: string;
   complate: boolean;
+  date: string;
+  time: string;
 }
 
 const App = () => {
@@ -36,6 +30,8 @@ const App = () => {
       id: Math.floor(Math.random() * 10000),
       task: value,
       complate: false,
+      date: new Date().toLocaleDateString('fa-IR'),
+      time: new Date().toLocaleTimeString('fa-IR'),
     };
 
     setTaskList([...taskList, newTask]);
