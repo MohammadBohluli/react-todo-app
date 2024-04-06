@@ -1,8 +1,8 @@
 import { FormEvent, useState } from 'react';
 import TaskList from './components/TaskList';
-import InputTask from './components/InputTask';
+import TaskInput from './components/TaskInput';
 
-import InputGroups from './components/InputGroups';
+import GroupsInput from './components/GroupsInput';
 import TaskStats from './components/TaskStats';
 
 const data = [
@@ -26,21 +26,11 @@ const App = () => {
   const [selectedStatus, setSelectedStatus] = useState<string>('');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  const onToggleComplete = (id: number) => {
-    setTaskList(
-      taskList.map((taskItem) =>
-        taskItem.id === id
-          ? { ...taskItem, complate: !taskItem.complate }
-          : taskItem
-      )
-    );
-  };
+  // ############################################
+  // ##### Create and Update Task
+  // ############################################
 
-  const handleSelectedTask = (taskItem: Task) => {
-    setSelectedTask(taskItem);
-    setValue(taskItem.task);
-  };
-
+  // Add task functionality
   const addTask = () => {
     const newTask: Task = {
       id: Math.floor(Math.random() * 10000),
@@ -52,6 +42,7 @@ const App = () => {
     setValue('');
   };
 
+  // Update task functionality
   const updateTask = (selectedTask: Task) => {
     setTaskList(
       taskList.map((task) =>
@@ -62,10 +53,7 @@ const App = () => {
     setSelectedTask(null);
   };
 
-  const handleChange = (input: string) => {
-    setValue(input);
-  };
-
+  // Submition for add or update tasks
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -80,10 +68,15 @@ const App = () => {
     setValue('');
   };
 
-  const handleSelectStatus = (status: string) => {
-    setSelectedStatus(status);
+  // Select task object for updating task
+  const handleSelectedTask = (taskItem: Task) => {
+    setSelectedTask(taskItem);
+    setValue(taskItem.task);
   };
 
+  // ############################################
+  // ##### Delete Task
+  // ############################################
   const handleDeleteTask = (taskId: number) => {
     const deleteConfirm = confirm('آیا از حذف مطمعن هستید ؟');
     deleteConfirm
@@ -91,6 +84,22 @@ const App = () => {
       : null;
   };
 
+  // ############################################
+  // ##### Change Status Complete Task
+  // ############################################
+  const onToggleComplete = (id: number) => {
+    setTaskList(
+      taskList.map((taskItem) =>
+        taskItem.id === id
+          ? { ...taskItem, complate: !taskItem.complate }
+          : taskItem
+      )
+    );
+  };
+
+  // ############################################
+  // ##### Handling all task complete button
+  // ############################################
   const handleAllCompleteTask = () => {
     setTaskList(
       taskList.map((taskItem) =>
@@ -103,20 +112,20 @@ const App = () => {
     <div className="glass-morphism max-w-3xl w-11/12 my-8 mx-auto p-3 bg-opacity-20">
       <h1 className="text-center text-white text-5xl">مدیریت کارها</h1>
 
-      <InputTask
+      <TaskInput
         value={value}
-        onChange={handleChange}
+        onChange={(input) => setValue(input)}
         onSubmit={handleSubmit}
       />
 
       {taskList.length !== 0 ? (
         <div>
-          <InputGroups
+          <GroupsInput
             onAllCompleteTask={handleAllCompleteTask}
             searchQuery={searchQuery}
             onSearchQuery={(searchParam) => setSearchQuery(searchParam)}
             selectedStatus={selectedStatus}
-            onSelectStatus={handleSelectStatus}
+            onSelectStatus={(status: string) => setSelectedStatus(status)}
           />
 
           <TaskList

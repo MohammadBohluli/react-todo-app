@@ -1,7 +1,6 @@
-import { Task } from "../App";
-import AllCompleteButton from "./AllCompleteButton";
-import SearchInput from "./SearchInput";
-import StatusSelection from "./StatusSelection";
+import AllCompleteButton from './AllCompleteButton';
+import SearchInput from './SearchInput';
+import StatusSelection from './StatusSelection';
 
 interface Props {
   onAllCompleteTask: () => void;
