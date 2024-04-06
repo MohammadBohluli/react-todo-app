@@ -20,11 +20,6 @@ const App = () => {
   const [selectedStatus, setSelectedStatus] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
-  // ############################################
-  // ##### Create and Update Task
-  // ############################################
-
-  // Add task functionality
   const addTask = () => {
     const newTask: Task = {
       id: Math.floor(Math.random() * 10000),
@@ -38,7 +33,6 @@ const App = () => {
     setValue('');
   };
 
-  // Update task functionality
   const updateTask = (selectedTask: Task) => {
     setTaskList(
       taskList.map((task) =>
@@ -49,7 +43,6 @@ const App = () => {
     setSelectedTask(null);
   };
 
-  // Submition for add or update tasks
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -70,9 +63,6 @@ const App = () => {
     setValue(taskItem.task);
   };
 
-  // ############################################
-  // ##### Delete Task
-  // ############################################
   const handleDeleteTask = (taskId: number) => {
     const deleteConfirm = confirm('آیا از حذف مطمعن هستید ؟');
     deleteConfirm
@@ -80,9 +70,6 @@ const App = () => {
       : null;
   };
 
-  // ############################################
-  // ##### Change Status Complete Task
-  // ############################################
   const onToggleComplete = (id: number) => {
     setTaskList(
       taskList.map((taskItem) =>
@@ -93,9 +80,6 @@ const App = () => {
     );
   };
 
-  // ############################################
-  // ##### Handling all task complete button
-  // ############################################
   const handleAllCompleteTask = () => {
     setTaskList(
       taskList.map((taskItem) =>
