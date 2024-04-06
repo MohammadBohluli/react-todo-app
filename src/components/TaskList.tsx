@@ -1,5 +1,7 @@
-import { VscEdit, VscChromeClose } from "react-icons/vsc";
-import { Task } from "../App";
+import { VscEdit, VscChromeClose } from 'react-icons/vsc';
+import { IoMdTime } from 'react-icons/io';
+import { CiCalendarDate } from 'react-icons/ci';
+import { Task } from '../App';
 
 interface Props {
   taskList: Task[];
@@ -20,11 +22,11 @@ const TaskList = ({
 }: Props) => {
   let taskListStatus = taskList;
 
-  if (selectedStatus === "true") {
+  if (selectedStatus === 'true') {
     taskListStatus = taskList.filter((taskItem) => taskItem.complate === true);
   }
 
-  if (selectedStatus === "false") {
+  if (selectedStatus === 'false') {
     taskListStatus = taskList.filter((taskItem) => taskItem.complate === false);
   }
 
@@ -51,26 +53,42 @@ const TaskList = ({
                   />
                   <p
                     className={`${
-                      taskItem.complate ? "line-through" : ""
+                      taskItem.complate ? 'line-through' : ''
                     } break-all`}
                   >
                     {taskItem.task}
                   </p>
                 </div>
 
-                <div className="flex justify-end gap-2">
-                  <button
-                    onClick={() => onDeleteTask(taskItem.id)}
-                    className="bg-red-500 p-[2px] rounded hover:bg-red-600"
-                  >
-                    <VscChromeClose size={18} />
-                  </button>
-                  <button
-                    onClick={() => onSelectedTask(taskItem)}
-                    className="bg-yellow-400 p-[2px] rounded hover:bg-yellow-500"
-                  >
-                    <VscEdit size={18} />
-                  </button>
+                <div className="flex justify-between">
+                  <div className="flex justify-center items-center gap-2 text-xs">
+                    <div className="flex justify-center items-center gap-1">
+                      <span>
+                        <CiCalendarDate size={16} />
+                      </span>
+                      <span>{new Date().toLocaleDateString('fa-IR')}</span>
+                    </div>
+                    <div className="flex justify-center items-center gap-1">
+                      <span>
+                        <IoMdTime size={16} />
+                      </span>
+                      <span>{new Date().toLocaleTimeString('fa-IR')}</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-2">
+                    <button
+                      onClick={() => onDeleteTask(taskItem.id)}
+                      className="bg-red-500 p-[2px] rounded hover:bg-red-600"
+                    >
+                      <VscChromeClose size={18} />
+                    </button>
+                    <button
+                      onClick={() => onSelectedTask(taskItem)}
+                      className="bg-yellow-400 p-[2px] rounded hover:bg-yellow-500"
+                    >
+                      <VscEdit size={18} />
+                    </button>
+                  </div>
                 </div>
               </div>
             </li>
