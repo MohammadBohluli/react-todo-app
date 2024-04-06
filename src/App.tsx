@@ -17,7 +17,7 @@ const App = () => {
   const [taskList, setTaskList] = useState<Task[]>(data);
   const [selectedTask, setSelectedTask] = useState<Task | null>(null);
   const [value, setValue] = useState<string>('');
-  const [selectedStatus, setSelectedStatus] = useState<string>('');
+  const [selectedStatus, setSelectedStatus] = useState<boolean>(false);
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   // ############################################
@@ -120,8 +120,7 @@ const App = () => {
             onAllCompleteTask={handleAllCompleteTask}
             searchQuery={searchQuery}
             onSearchQuery={(searchParam) => setSearchQuery(searchParam)}
-            selectedStatus={selectedStatus}
-            onSelectStatus={(status: string) => setSelectedStatus(status)}
+            onSelectStatus={(status: boolean) => setSelectedStatus(status)}
           />
 
           <TaskList

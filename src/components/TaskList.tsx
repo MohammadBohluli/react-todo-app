@@ -6,7 +6,7 @@ interface Props {
   onDeleteTask: (id: number) => void;
   onSelectedTask: (task: Task) => void;
   onToggleComplete: (taskId: number) => void;
-  selectedStatus: string;
+  selectedStatus: boolean;
   searchQuery: string;
 }
 
@@ -20,11 +20,9 @@ const TaskList = ({
 }: Props) => {
   let taskListStatus = taskList;
 
-  if (selectedStatus === 'true') {
+  if (selectedStatus) {
     taskListStatus = taskList.filter((taskItem) => taskItem.complate === true);
-  }
-
-  if (selectedStatus === 'false') {
+  } else {
     taskListStatus = taskList.filter((taskItem) => taskItem.complate === false);
   }
 
