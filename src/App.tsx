@@ -103,7 +103,7 @@ const App = () => {
 
   return (
     <div className="glass-morphism max-w-3xl w-11/12 my-8 mx-auto p-3 bg-opacity-20">
-      <h1 className="text-center text-2xl">مدیریت کارها</h1>
+      <h1 className="text-center text-white text-5xl">مدیریت کارها</h1>
 
       <InputTask
         value={value}

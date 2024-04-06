@@ -8,8 +8,10 @@ const StatusSelection = ({ selectedStatus, onSelectStatus }: Props) => {
     <select
       value={selectedStatus}
       onChange={(e) => onSelectStatus(e.target.value)}
-      className="rounded outline-none border-b-4 border-white border-b-sky-400 
-      cursor-pointer px-5 w-6/12 sm:w-auto text-center sm:order-1"
+      className="rounded outline-none border-b-4 
+      border-white border-b-sky-400 cursor-pointer 
+      px-5 w-6/12 sm:w-auto text-center sm:order-1 
+      bg-white text-gray-700 font-estedad"
     >
       <option value="">پیشفرض</option>
       <option value="true">انجام شده</option>

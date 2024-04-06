@@ -6,8 +6,7 @@ const AllCompleteButton = ({ onAllComplateTask }: Props) => {
   return (
     <button
       onClick={onAllComplateTask}
-      className="bg-violet-600 opacity-80 hover:opacity-100 
-                px-2 rounded text-gray-100"
+      className="bg-sky-500 hover:bg-sky-600 px-2 rounded text-gray-50"
     >
       همه رو انجام دادم
     </button>
