@@ -2,20 +2,14 @@ import { CiCalendarDate } from 'react-icons/ci';
 import { IoMdTime } from 'react-icons/io';
 import { VscChromeClose, VscEdit } from 'react-icons/vsc';
 import { Task } from '../App';
+import useTask from '../tasks/useTask';
 
 interface Props {
   taskItem: Task;
-  onToggleComplete: (taskId: number) => void;
-  onDeleteTask: (id: number) => void;
-  onSelectedTask: (task: Task) => void;
 }
 
-const TaskItem = ({
-  taskItem,
-  onToggleComplete,
-  onDeleteTask,
-  onSelectedTask,
-}: Props) => {
+const TaskItem = ({ taskItem }: Props) => {
+  const { onSelectedTask, dispatch } = useTask();
   return (
     <li>
       <div
@@ -26,7 +20,9 @@ const TaskItem = ({
           <input
             type="checkbox"
             checked={taskItem.complate}
-            onChange={() => onToggleComplete(taskItem.id)}
+            onChange={() =>
+              dispatch({ type: 'TOGGLE_TASK', taskId: taskItem.id })
+            }
             className="accent-green-600 w-4 h-4"
           />
           <p className={`${taskItem.complate ? 'line-through' : ''} break-all`}>
@@ -51,7 +47,7 @@ const TaskItem = ({
           </div>
           <div className="flex gap-2">
             <button
-              onClick={() => onDeleteTask(taskItem.id)}
+              onClick={() => dispatch({ type: 'DELETE', taskId: taskItem.id })}
               className="bg-red-500 p-[2px] rounded hover:bg-red-600"
             >
               <VscChromeClose size={18} />

@@ -1,30 +1,15 @@
-import { Task } from '../App';
+import useTask from '../tasks/useTask';
 import TaskItem from './TaskItem';
 
-interface Props {
-  taskList: Task[];
-  onDeleteTask: (id: number) => void;
-  onSelectedTask: (task: Task) => void;
-  onToggleComplete: (taskId: number) => void;
-  selectedStatus: boolean;
-  searchQuery: string;
-}
+const TaskList = () => {
+  const { tasks, stateFilter, searchQuery } = useTask();
+  let taskListStatus = tasks;
 
-const TaskList = ({
-  taskList,
-  onDeleteTask,
-  onSelectedTask,
-  onToggleComplete,
-  selectedStatus,
-  searchQuery,
-}: Props) => {
-  let taskListStatus = taskList;
+  if (stateFilter === 'complete')
+    taskListStatus = tasks.filter((taskItem) => taskItem.complate === true);
 
-  if (selectedStatus) {
-    taskListStatus = taskList.filter((taskItem) => taskItem.complate === true);
-  } else {
-    taskListStatus = taskList.filter((taskItem) => taskItem.complate === false);
-  }
+  if (stateFilter === 'uncomplete')
+    taskListStatus = tasks.filter((taskItem) => taskItem.complate === false);
 
   return (
     <div>
@@ -34,13 +19,7 @@ const TaskList = ({
             t.task.toLowerCase().includes(searchQuery.toLowerCase())
           )
           .map((task) => (
-            <TaskItem
-              key={task.id}
-              taskItem={task}
-              onDeleteTask={onDeleteTask}
-              onSelectedTask={onSelectedTask}
-              onToggleComplete={onToggleComplete}
-            />
+            <TaskItem key={task.id} taskItem={task} />
           ))}
       </ul>
     </div>

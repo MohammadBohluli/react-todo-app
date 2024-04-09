@@ -1,10 +1,8 @@
 import { CiSearch } from 'react-icons/ci';
-interface Props {
-  searchQuery: string;
-  onSearchQuery: (searchParam: string) => void;
-}
+import useTask from '../tasks/useTask';
 
-const SearchInput = ({ searchQuery, onSearchQuery }: Props) => {
+const SearchInput = () => {
+  const { onSearchQuery, searchQuery } = useTask();
   return (
     <div className="flex justify-center items-center w-full relative">
       <span className="bg-white absolute right-1 text-gray-400 border-none">

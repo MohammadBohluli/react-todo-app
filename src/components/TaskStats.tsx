@@ -1,17 +1,13 @@
 import { FaTasks } from 'react-icons/fa';
 import { IoMdDoneAll } from 'react-icons/io';
 import { GrInProgress } from 'react-icons/gr';
-import { Task } from '../App';
+import useTask from '../tasks/useTask';
 
-interface Props {
-  taskList: Task[];
-}
-const TaskStats = ({ taskList }: Props) => {
-  const completeTask = taskList.filter(
-    (taskItem) => taskItem.complate === true
-  );
+const TaskStats = () => {
+  const { tasks } = useTask();
+  const completeTask = tasks.filter((taskItem) => taskItem.complate === true);
 
-  const inProgressTask = taskList.filter(
+  const inProgressTask = tasks.filter(
     (taskItem) => taskItem.complate === false
   );
 
@@ -22,7 +18,7 @@ const TaskStats = ({ taskList }: Props) => {
     >
       <div className="flex justify-center items-center gap-1">
         <FaTasks size={17} color="white" />
-        <span>{taskList.length}</span>
+        <span>{tasks.length}</span>
       </div>
       <div className="flex justify-center items-center gap-1">
         <IoMdDoneAll size={17} color="green" />
